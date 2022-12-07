@@ -29,5 +29,61 @@ Réponse : THM{17_h45_l3553r_l3773r5}
 // Traduire à partir de la base 58
 
 Task 9
-Réponse :
-// 
+Réponse : THM{hail_the_caesar}
+// Utiliser l'algorithme de Ceaser cipher avec un décalage de 7 caractères
+
+Task 10
+Réponse : THM{4lw4y5_ch3ck_7h3_c0m3mn7} 
+// Regarder dans le code source de la page
+
+Task 11
+Réponse : THM{Y35_W3_C4N}
+// Un peu plus profond
+// Vérifier le header du fichier (xxd spoile.png | head)
+// Remarque que l'image est corrompu parce qu'il manque le header d'un fichier sous le format PNG (2333 445f à la place de 8950 4e47)
+// Rectifier le header du fichier (printf '\x89\x50\x4E\x47' | dd of=spoil.png bs=4 conv=notrunc)
+// Ouvrir le fichier 
+
+Task 12 
+Réponse : THM{50c14l_4cc0un7_15_p4r7_0f_051n7}
+// Effectuer quelques recherche sur la page reddit de TryHackMe
+
+Task 13
+Réponse :THM{0h_my_h34d}
+// Décoder à partir de Brainfuck vers texte
+
+Task 14
+Réponse :THM{3xclu51v3_0r}
+// Déchiffrement par XOR
+
+Task 15
+Réponse : THM{y0u_w4lk_m3_0u7}
+// Utiliser l'outil BinWalk
+
+Task 16
+Réponse :THM{7h3r3_15_h0p3_1n_7h3_d4rkn355}
+// Utiliser l'outil Stegsolve
+
+Task 17 
+Réponse : THM{SOUNDINGQR}
+// Scanner qr code et écouter le speaker
+
+Task 18
+Réponse : THM{ch3ck_th3_h4ckb4ck} 
+// Chercher sur le site web.archive.org l'url donné
+
+Task 19 
+Réponse : TRYHACKME{YOU_FOUND_THE_KEY}
+// Utiliser le site CyberChef avec le module Vigenère et la clé THMTHMTHM
+
+Task 20
+Réponse : THM{17_ju57_4n_0rd1n4ry_b4535}
+// Utiliser script python 
+// $ python
+// >> n = 581695969015253365094191591547859387620042736036246486373595515576333693 
+// >> h = hex(n)[2:]
+// >> bytearray.fromhex(h).decode() 
+
+Task 21 
+Réponse : THM{d0_n07_574lk_m3}
+// Utiliser Wireshark pour suivre le flux HTTP (obentu grâce à une requête et GET)
